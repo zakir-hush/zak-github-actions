@@ -1,0 +1,25 @@
+name: Generate ASCII Artwork
+
+on: push
+
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+        - name: Install cowsay package
+          run: sudo apt-get install -y cowsay
+
+        - name: Execute cowsay command
+          run: cowsay -f ram "Hello from GitHub Actions!" >> ram.txt
+
+        - name: Test File Exist
+          run: grep -i "ram" ram.txt
+
+        - name: Read File
+          run: cat ram.txt
+
+        - name: List Repo Files
+          run: ls -ltra
