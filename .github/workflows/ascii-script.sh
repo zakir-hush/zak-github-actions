@@ -1,0 +1,18 @@
+name: ascii script
+
+on: push
+
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+        - name: List REpo Files
+          run: ls -la
+
+        - name: Executing shell script
+          run: |
+            chmod +x ./ascii-script.sh
+            ./ascii-script.sh
