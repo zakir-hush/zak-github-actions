@@ -9,17 +9,10 @@ jobs:
         - name: Checkout Repository
           uses: actions/checkout@v4
 
-        - name: Install cowsay package
-          run: sudo apt-get install -y cowsay
+        - name: List REpo Files
+          run: ls -la
 
-        - name: Execute cowsay command
-          run: cowsay -f elephant "Hello elephant from GitHub Actions!" >> elephant.txt
-
-        - name: Test File Exists
-          run: grep -i "elephant" elephant.txt
-
-        - name: Read File
-          run: cat elephant.txt
-
-        - name: List Repo Files
-          run: ls -ltra
+        - name: Executing shell script
+          run: |
+            chmod +x ./ascii-script.sh
+            ./ascii-script.sh
