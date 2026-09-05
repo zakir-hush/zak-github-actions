@@ -13,13 +13,13 @@ jobs:
           run: sudo apt-get install -y cowsay
 
         - name: Execute cowsay command
-          run: cowsay -f dragon "Hello dragon from GitHub Actions!" >> dragon.txt
+          run: cowsay -f elephant "Hello elephant from GitHub Actions!" >> elephant.txt
 
         - name: Test File Exists
-          run: grep -i "dragon" dragon.txt
+          run: grep -i "elephant" elephant.txt
 
         - name: Read File
-          run: cat dragon.txt
+          run: cat elephant.txt
 
         - name: List Repo Files
           run: ls -ltra
