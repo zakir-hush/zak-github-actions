@@ -9,11 +9,17 @@ jobs:
         - name: Checkout Repository
           uses: actions/checkout@v4
 
-        - name: welcome message
-          run: echo "My First Githiub Actions Job"
+        - name: List and Read File
+          run: |
+            echo "My First Githiub Actions Job"
+            ls -ltra
+            cat README.md
 
-        - name: List Files
-          run: ls
+        - name: Generate ASCII Artwork
+          run: cowsay -f dragon "Hello from GitHub Actions!" >> dragon.txt      
 
-        - name: Read File
-          run: cat README.md
+        # - name: List Files
+        #   run: ls
+
+        # - name: Read File
+        #   run: cat README.md
