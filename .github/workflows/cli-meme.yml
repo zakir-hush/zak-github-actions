@@ -15,7 +15,7 @@ jobs:
         - name: Execute cowsay command
           run: cowsay -f dragon "Hello from GitHub Actions!" >> dragon.txt
 
-        - name: Test File Exist
+        - name: Test File Exists
           run: grep -i "dragon" dragon.txt
 
         - name: Read File
