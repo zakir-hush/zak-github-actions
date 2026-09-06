@@ -15,10 +15,11 @@ jobs:
         - name: Execute Cowsay Command
           run: cowsay -f turkey "Hello turkey from GitHub Actions!" >> turkey.txt
 
-        - name: sleep for 30 seconds
-          run: sleep 30
+        - name: sleep for 5 seconds
+          run: sleep 5
 
     test_job_2:
+        needs: build_job_1
         runs-on: ubuntu-latest
         steps:
         # - name: Checkout Repository
@@ -31,6 +32,7 @@ jobs:
           run: grep -i "turkey" turkey.txt
 
     deploy_job_3:
+        needs: test_job_2
         runs-on: ubuntu-latest
         steps:
         # - name: Checkout Repository
