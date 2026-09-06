@@ -6,8 +6,8 @@ jobs:
     build_job_1:
         runs-on: ubuntu-latest
         steps:
-        # - name: Checkout Repository
-        #   uses: actions/checkout@v4
+        - name: Checkout Repository
+          uses: actions/checkout@v4
 
         - name: install cowsay Package
           run: sudo apt-get install -y cowsay
