@@ -6,9 +6,13 @@ on:
 jobs:       
     deploy:
         strategy:
+            max-parallel: 3
             matrix:
                 os: [ubuntu-latest, ubuntu-22.04, ubuntu-24.04] 
                 images: [hello-world, alpine, nginx]    
+                exclude:
+                    - os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+                      images: nginx
         runs-on: ${{ matrix.os }}
         steps:
         - name: Echo Docker Details
