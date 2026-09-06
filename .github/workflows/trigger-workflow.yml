@@ -1,8 +1,9 @@
 name: Exploring Variables and Secrets
 
 on:
-    schedule:
-        - cron: '*/5 * * * *' # Runs every minute
+    workflow_dispatch:
+    # schedule:
+    #     - cron: '*/5 * * * *' # Runs every minute
 
 
 env:
