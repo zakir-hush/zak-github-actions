@@ -14,9 +14,9 @@ jobs:
                     - os: ubuntu-24.04
                       images: nginx
                     - os: ubuntu-22.04
-                      images: alpine
+                      images: nginx
                     - os: ubuntu-latest
-                      images: hello-world
+                      images: nginx
         runs-on: ${{ matrix.os }}
         steps:
         - name: Echo Docker Details
