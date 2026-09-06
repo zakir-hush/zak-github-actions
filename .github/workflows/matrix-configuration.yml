@@ -11,8 +11,12 @@ jobs:
                 os: [ubuntu-latest, ubuntu-22.04, ubuntu-24.04] 
                 images: [hello-world, alpine, nginx]    
                 exclude:
-                    - os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+                    - os: ubuntu-24.04
                       images: nginx
+                    - os: ubuntu-22.04
+                      images: alpine
+                    - os: ubuntu-latest
+                      images: hello-world
         runs-on: ${{ matrix.os }}
         steps:
         - name: Echo Docker Details
