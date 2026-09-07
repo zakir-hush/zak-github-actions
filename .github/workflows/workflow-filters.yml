@@ -1,0 +1,26 @@
+name: Workflow Filters
+
+on:  
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '*/59 * * * *' # Runs every 59th minute of every hour
+  push:
+    branches:
+      - main
+      - '!feature/*' # Exclude feature branches name starting with feature using !
+  pull_request:
+      types:
+        - opened
+        - closed
+      paths-ignore: #workflow will only run when changes are made to files other than ReadMe.md
+        - 'README.md' # Ignore changes in ReadMe.md
+      branches:
+        - main
+    
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Event Type
+        run: echo this workflow/job/step is executed for event type - ${{ github.event_name }}
+
